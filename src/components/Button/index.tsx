@@ -1,4 +1,6 @@
-export const Button = () => {
+import { FunctionComponent, ReactElement } from "react";
 
-    return null;
+export const Button: FunctionComponent = (): ReactElement => {
+
+    return <span></span>;
 }
