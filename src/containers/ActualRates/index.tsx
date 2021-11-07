@@ -1,6 +1,7 @@
 import { FunctionComponent, ReactElement } from "react";
+import { RatesTableFragment } from '../../fragments';
 
 export const ActualRates: FunctionComponent = (): ReactElement => {
 
-    return <span>1234</span>;
+    return <RatesTableFragment />;
 }
