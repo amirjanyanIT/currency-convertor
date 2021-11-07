@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { interceptorsInit } from './fastForex.io';
+import { interceptorsInit } from './interceptors';
 import { BrowserRouter } from 'react-router-dom';
 interceptorsInit();
 ReactDOM.render(

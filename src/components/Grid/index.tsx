@@ -5,6 +5,8 @@ import { RowInterface } from '../../models';
 export const Grid = {
     container: styled.div`
         width: 100%;
+        max-height: 500px;
+        overflow: auto;
         border: 1px solid var(--white);
         border-radius: 5px;
         color: var(--white);

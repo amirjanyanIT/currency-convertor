@@ -1,7 +1,6 @@
 import { FunctionComponent, ReactElement } from "react";
 import { RatesTableFragment } from '../../fragments';
-
-export const ActualRates: FunctionComponent = (): ReactElement => {
-
+import { observer } from "mobx-react-lite";
+export const ActualRates: FunctionComponent = observer((): ReactElement => {
     return <RatesTableFragment />;
-}
+});
