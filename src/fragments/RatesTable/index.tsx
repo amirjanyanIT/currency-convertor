@@ -1,10 +1,11 @@
 import { FunctionComponent, ReactElement, useEffect, useState } from "react";
 import { Grid, Button } from '../../components';
 import { Container } from './style';
-import { CurrencyTypes } from '../../models/CurrencyTypes';
+import { CurrencyTypes } from '../../types/components/CurrencyTypes';
 import { useNavigate } from 'react-router-dom';
 import { currencies } from '../../mobx';
 import { observer } from "mobx-react-lite";
+
 export const RatesTable: FunctionComponent = observer((): ReactElement => {
     const navigate = useNavigate();
     const [activeCourse, setActiveCourse] = useState<CurrencyTypes>("RUB");

@@ -1,4 +1,4 @@
-import { CurrencyTypes } from ".";
+import { CurrencyTypes } from "../types";
 
 export interface ConvertorSettings {
     from: CurrencyTypes,

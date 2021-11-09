@@ -1,12 +1,12 @@
 import { FunctionComponent, ReactElement, useState } from "react";
 import { ReactComponent as ExchangeSVG } from '../../assets/exchange.svg';
 import { Container } from './style';
-import { Input, Select, Button } from '../../components';
+import { Input, Button } from '../../components';
 import { useNavigate } from "react-router-dom";
 import { observer } from 'mobx-react-lite';
 import { ConvertorSettings } from "../../models";
-import { CurrencyTypes } from '../../models';
 import { convertor } from '../../mobx';
+import { ExchangeInput } from '../../components'
 export const Exchange: FunctionComponent = observer((): ReactElement => {
     const navigate = useNavigate();
 
@@ -21,23 +21,9 @@ export const Exchange: FunctionComponent = observer((): ReactElement => {
             <Button onClick={() => navigate('/')}>Go Back</Button>
             <Container>
                 <div>
-                    <Input value={settings.amount} onChange={({ target }) => setSettings({ ...settings, amount: Number(target.value) })} type="number" placeholder="Write amount to exchange..." />
-                    <Select
-                        value={settings.from}
-                        onChange={({ target }) => setSettings({ ...settings, from: target.value as CurrencyTypes })}
-                    >
-                        <option value="EUR">EURO</option>
-                        <option value="USD">DOLLAR</option>
-                        <option value="RUB">RUBLE</option>
-                    </Select>
-                    <Select
-                        value={settings.to}
-                        onChange={({ target }) => setSettings({ ...settings, to: target.value as CurrencyTypes })}
-                    >
-                        <option value="EUR">EURO</option>
-                        <option value="USD">DOLLAR</option>
-                        <option value="RUB">RUBLE</option>
-                    </Select>
+                    <ExchangeInput
+                        onChange={(value) => setSettings(value)}
+                    />
                 </div>
                 <button className="exchange-svg-button" onClick={() => convertor.covert(settings)}>
                     <ExchangeSVG />

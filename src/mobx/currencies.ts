@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { makeAutoObservable } from "mobx"
-import { CurrenciesMobx, CurrencyElement, CurrencyTypes } from "../models";
+import { CurrenciesMobx, CurrencyElement } from "../models";
+import { CurrencyTypes } from '../types';
 
 class Currencies implements CurrenciesMobx {
 
@@ -9,7 +10,6 @@ class Currencies implements CurrenciesMobx {
         makeAutoObservable(this)
     }
 
-    
     fetchCurrencies = (baseCurrency: CurrencyTypes) => new Promise<boolean>(resolve => {
         axios.get('fetch-all', {
             params: {
@@ -19,12 +19,11 @@ class Currencies implements CurrenciesMobx {
             this.currencies = Object.keys(req.data.results).reduce<CurrencyElement[]>((acc, currency, index) => {
                 acc[index] = {
                     "currency": currency,
-                    "value": Number(acc[index])
+                    "value":`${acc[index]} ${baseCurrency}`
                 }
 
                 return acc;
             }, Object.values(req.data.results))
-            console.log({ currencies });
             resolve(true);
         })
         

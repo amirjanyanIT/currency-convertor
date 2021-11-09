@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ButtonInterface } from '../../models'
+import { ButtonInterface } from '../../types'
 
 export const Button = styled.button<ButtonInterface>`
     border: 1px solid var(--white);

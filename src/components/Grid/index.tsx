@@ -1,6 +1,6 @@
 
 import styled from 'styled-components';
-import { RowInterface } from '../../models';
+import { RowInterface } from '../../types';
 
 export const Grid = {
     container: styled.div`
